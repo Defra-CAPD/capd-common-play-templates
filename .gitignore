@@ -1,0 +1,6 @@
+.idea
+target
+.idea_modules
+project/project
+projectFilesBackup*
+.DS_Store

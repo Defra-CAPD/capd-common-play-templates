@@ -1,0 +1,17 @@
+@(logoContent: Html)(navMenuContent: Html)
+    <a class="visuallyhidden" href="#main-content" ga-click ga-category="Header" ga-action="Link clicked: Skip to main content">Skip to main content</a>
+    <div class="header-wrapper">
+        <div class="header-global">
+            <div class="header-logo">
+                @logoContent
+            </div>
+        </div>
+        <div class="header-proposition">
+            <div class="content">
+                <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
+                <nav id="proposition-menu">
+                    @navMenuContent
+                </nav>
+            </div>
+        </div>
+    </div>

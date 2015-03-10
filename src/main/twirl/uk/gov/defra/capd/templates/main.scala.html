@@ -1,0 +1,159 @@
+@(title: String, userType: String = "external", seenCookiePolicyNotification: Boolean = true, seenUnsupportedBrowsersNotification: Boolean = true, dependencies: Html = Html(""))(content: Html)
+<!DOCTYPE html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en-GB"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en-GB"><!--<![endif]-->
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>@title</title>
+
+    <!--[if gt IE 8]><!-->
+    <link href="/assets/govuk/stylesheets/govuk-template.css" media="screen" rel="stylesheet">
+    <!--<![endif]-->
+
+    <!--[if IE 8]>
+    <link href="/assets/govuk/stylesheets/govuk-template-ie8.css" media="screen" rel="stylesheet">
+    <![endif]-->
+
+    <link href="/assets/govuk/stylesheets/govuk-template-print.css" media="print" rel="stylesheet">
+
+    <!--[if IE 8]>
+    <script>
+        (function(){if(window.opera){return;}
+            setTimeout(function(){var a=document,g,b={families:(g=
+                            ["nta"]),urls:["/assets/govuk/stylesheets/fonts-ie8.css"]},
+                    c="assets/govuk/javascripts/vendor/goog/webfont-debug.js",d="script",
+                    e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+                    ={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h=h-1;a.documentElement
+                    .className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0)
+        })()
+    </script>
+    <![endif]-->
+
+    <!--[if gte IE 9]><!-->
+    <link href="/assets/govuk/stylesheets/fonts.css" media="all" rel="stylesheet">
+    <!--<![endif]-->
+
+    <link rel="shortcut icon" href="/assets/govuk/images/favicon.ico" type="image/x-icon">
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/govuk/images/apple-touch-icon-144x144.png">
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/govuk/images/apple-touch-icon-114x114.png">
+
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/govuk/images/apple-touch-icon-72x72.png">
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="/assets/govuk/images/apple-touch-icon-57x57.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:image" content="/assets/govuk/images/opengraph-image.png">
+
+    <link rel="stylesheet" media="screen" href="/assets/sass/main.min.css">
+
+    @dependencies
+
+    <!--[if lt IE 9]>
+        <script src="/assets/javascripts/lib/json3/lib/json3.min.js"></script>
+        <script src="/assets/javascripts/lib/respond/respond.min.js"></script>
+        <script src="/assets/javascripts/lib/html5shiv/dist/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+    <!-- Header -->
+    <div id="skiplink-container">
+        <div>
+            <a href="#content" class="skiplink">Skip to main content</a>
+        </div>
+    </div>
+
+    <div id="global-cookie-message">
+        <div class="outer-block">
+            <div class="inner-block">
+                <p>GOV.UK uses cookies to make the site simpler. <a href="https://www.gov.uk/help/cookies">Find out more about cookies</a></p>
+            </div>
+        </div>
+    </div>
+
+    <header class="with-proposition" role="banner" id="global-header">
+
+@if(userType.equals("internal")) {
+        <div>
+            @uk.gov.defra.capd.templates.partials.header.html.header_top_internal()
+        </div>
+}
+
+@if(userType.equals("external")) {
+        <div>
+            @uk.gov.defra.capd.templates.partials.header.html.header_top_external()
+        </div>
+}
+
+    </header>
+     <!-- End Header -->
+
+@if(!seenCookiePolicyNotification) {
+    <div id="global-cookie-message">
+        <p>This site uses cookies. By continuing to use this site you are agreeing to our use of cookies. <a href="/#/cookies" ga-click ga-category="Cookies" ga-action="Link clicked: Find out more about cookies">Find out more about Cookies.</a></p>
+    </div>
+}
+
+@if(!seenUnsupportedBrowsersNotification) {
+    <div id="global-browser-unsupported-message">
+        <p> <span class="pull-left">Upgrade your browser for a safer, faster, better experience online.
+            <a href="http://www.gov.uk/help/browsers">Find out more about browsers</a> </span>
+            <a href="" class="dismiss pull-right" title="Dismiss this message" id="dismiss-browser-unsupported-message-button">Close</a>
+        </p>
+    </div>
+}
+
+    <div id="global-header-bar">
+      <div class="inner-block">
+        <div class="header-bar"></div>
+      </div>
+    </div>
+
+
+    <!-- Content -->
+    <main id="page-container" role="main">
+
+        <div id="content">
+
+            @uk.gov.defra.capd.templates.partials.phase_notice.html.main()
+
+            <div class="inner-block">
+
+                @content
+
+            </div>
+
+        </div>
+
+    </main>
+    <!-- End Content -->
+
+    <script>
+    // TODO global JS needed
+    </script>
+
+@if(userType.equals("internal")) {
+    <div>
+        @uk.gov.defra.capd.templates.partials.footer.html.internal()
+    </div>
+}
+
+@if(userType.equals("external")) {
+    <div>
+        @uk.gov.defra.capd.templates.partials.footer.html.external()
+    </div>
+}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+@()
+    @header {
+        <div class="defra-logo">
+            <img id="defra-image" src="/assets/images/defra-logo.png" alt="Department for Environment Food &amp; Rural Affairs">
+        </div>
+    }      {
+        <span id="proposition-name">{{userContext.userFirstName}} {{userContext.userLastName}}</span>
+        <ul id="proposition-links">
+            <li>
+                <a href="/#/internal_user/main" ga-click ga-category="Header" ga-action="Link clicked: Home">Home</a>
+            </li>
+            <li>
+                <a href="/#/internal_user/recently_viewed" ga-click ga-category="Header" ga-action="Link clicked: Recently viewed">Recently viewed</a>
+            </li>
+            <li>
+                <a href="/" ga-click ga-category="Header" ga-action="Link clicked: Sign out">Sign out
+                    <span class="visuallyhidden">(link opens in a pop-up)</span>
+                </a>
+            </li>
+        </ul>
+    }
